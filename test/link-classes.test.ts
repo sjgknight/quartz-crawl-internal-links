@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest"
 import type { Element, Root } from "hast"
 import type { BuildCtx } from "@quartz-community/types"
-import { LinkClasses, type LinkClassesOptions } from "../src/transfoerm"
+import { LinkClasses, type LinkClassesOptions } from "../src/transformer"
 
 function makeAnchor(
   href: string,
