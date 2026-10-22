@@ -50,11 +50,11 @@ function runTransform(
 function classesOf(element: Element): string[] {
   const value = element.properties.className
 
-  if (!Array.isArray(value)) {
-    return typeof value === "string" ? value.split(/\s+/).filter(Boolean) : []
-  }
-
-  return value.filter((item): item is string => typeof item === "string")
+  return Array.isArray(value)
+    ? value.filter(
+        (item): item is string => typeof item === "string",
+      )
+    : []
 }
 
 function hasClass(element: Element, className: string): boolean {
