@@ -1,19 +1,18 @@
 {
-  "name": "@quartz-community/crawl-links",
+  "name": "@sjgknight/quartz-crawl-internal-links",
   "version": "1.0.0",
   "description": "Crawl links transformer plugin for Quartz",
   "type": "module",
   "license": "MIT",
-  "author": "Quartz Community",
-  "homepage": "https://github.com/quartz-community/crawl-links",
+  "author": "Quartz Community + sjgknight",
+  "homepage": "https://github.com/sjgknight/quartz-crawl-internal-links",
   "repository": {
     "type": "git",
-    "url": "https://github.com/quartz-community/crawl-links"
+    "url": "https://github.com/sjgknight/quartz-crawl-internal-links"
   },
   "keywords": [
     "quartz",
-    "quartz-plugin",
-    "crawl-links",
+    "quartz-crawl-internal-links",
     "links",
     "hast"
   ],
@@ -81,8 +80,8 @@
     "npm": ">=10.9.2"
   },
   "quartz": {
-    "name": "crawl-links",
-    "displayName": "Crawl Links",
+    "name": "quartz-crawl-internal-links",
+    "displayName": "Crawl Internal Links",
     "category": "transformer",
     "version": "1.0.0",
     "quartzVersion": ">=5.0.0",
