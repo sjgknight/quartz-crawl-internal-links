@@ -1,7 +1,7 @@
 {
   "name": "@sjgknight/quartz-crawl-internal-links",
   "version": "1.0.0",
-  "description": "Crawl links transformer plugin for Quartz",
+  "description": "Configurable CSS classes for resolved internal links in Quartz",
   "type": "module",
   "license": "MIT",
   "author": "Quartz Community + sjgknight",
@@ -14,6 +14,7 @@
     "quartz",
     "quartz-crawl-internal-links",
     "links",
+    "css-classes",
     "hast"
   ],
   "files": [
@@ -43,17 +44,9 @@
     "prepublishOnly": "npm run build",
     "release": "npm run build && changeset publish"
   },
-  "peerDependencies": {
-    "preact": "^10.0.0"
-  },
-  "peerDependenciesMeta": {
-    "preact": {
-      "optional": false
-    }
-  },
   "dependencies": {
     "@quartz-community/types": "^1.0.0",
-    "@quartz-community/utils": "^1.0.0"
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@types/hast": "^3.0.4",
@@ -62,16 +55,9 @@
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "github-slugger": "^2.0.0",
-    "hast": "^1.0.0",
-    "hast-util-to-jsx-runtime": "^2.3.6",
-    "is-absolute-url": "^4.0.1",
-    "preact": "^10.28.2",
     "prettier": "^3.6.2",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
-    "unist-util-visit": "^5.0.0",
-    "vfile": "^6.0.3",
     "vitest": "^2.1.9",
     "@changesets/cli": "^2.29.2"
   },
@@ -81,44 +67,19 @@
   },
   "quartz": {
     "name": "quartz-crawl-internal-links",
-    "displayName": "Crawl Internal Links",
+    "displayName": "Link Classes",
     "category": "transformer",
     "version": "1.0.0",
     "quartzVersion": ">=5.0.0",
     "dependencies": [],
-    "defaultOrder": 60,
+    "defaultOrder": 61,
     "defaultEnabled": true,
     "defaultOptions": {
-      "markdownLinkResolution": "absolute",
-      "prettyLinks": true,
-      "openLinksInNewTab": false,
-      "lazyLoad": false,
-      "externalLinkIcon": true,
-      "disableBrokenWikilinks": false
+      "rules": []
     },
     "optionSchema": {
-      "markdownLinkResolution": {
-        "type": "enum",
-        "values": [
-          "shortest",
-          "absolute",
-          "relative"
-        ]
-      },
-      "prettyLinks": {
-        "type": "boolean"
-      },
-      "openLinksInNewTab": {
-        "type": "boolean"
-      },
-      "lazyLoad": {
-        "type": "boolean"
-      },
-      "externalLinkIcon": {
-        "type": "boolean"
-      },
-      "disableBrokenWikilinks": {
-        "type": "boolean"
+      "rules": {
+        "type": "array"
       }
     }
   },
