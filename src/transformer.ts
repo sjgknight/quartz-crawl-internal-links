@@ -1,6 +1,6 @@
-import type { QuartzTransformerPlugin, BuildCtx } from "@quartz-community/types"
-import type { Element, Root } from "hast"
-import { visit } from "unist-util-visit"
+import type { QuartzTransformerPlugin, BuildCtx } from "@quartz-community/types";
+import type { Element, Root } from "hast";
+import { visit } from "unist-util-visit";
 
 export interface LinkClassRule {
   /**
@@ -60,8 +60,7 @@ function isInDirectory(slug: string, directory: string): boolean {
   const normalisedDirectory = normaliseSlug(directory);
 
   return (
-    normalisedSlug === normalisedDirectory ||
-    normalisedSlug.startsWith(`${normalisedDirectory}/`)
+    normalisedSlug === normalisedDirectory || normalisedSlug.startsWith(`${normalisedDirectory}/`)
   );
 }
 
@@ -87,11 +86,7 @@ function matchesRule(slug: string, rule: LinkClassRule): boolean {
   return false;
 }
 
-
-
-export const LinkClasses: QuartzTransformerPlugin<
-  Partial<LinkClassesOptions>
-> = (userOpts) => {
+export const LinkClasses: QuartzTransformerPlugin<Partial<LinkClassesOptions>> = (userOpts) => {
   const opts: LinkClassesOptions = {
     ...defaultOptions,
     ...userOpts,
@@ -117,12 +112,9 @@ export const LinkClasses: QuartzTransformerPlugin<
               }
 
               const existingClasses = node.properties.className;
-const classes: string[] = Array.isArray(existingClasses)
-  ? existingClasses.filter(
-      (value): value is string => typeof value === "string",
-    )
-  : []
-           
+              const classes: string[] = Array.isArray(existingClasses)
+                ? existingClasses.filter((value): value is string => typeof value === "string")
+                : [];
 
               // CrawlLinks should have already added this class.
               if (!classes.includes("internal")) {
@@ -146,10 +138,7 @@ const classes: string[] = Array.isArray(existingClasses)
                   : [rule.className];
 
                 for (const className of ruleClasses) {
-                  if (
-                    className.trim() &&
-                    !classes.includes(className.trim())
-                  ) {
+                  if (className.trim() && !classes.includes(className.trim())) {
                     classes.push(className.trim());
                   }
                 }
