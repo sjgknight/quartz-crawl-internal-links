@@ -1,12 +1,6 @@
-import type { QuartzTransformerPlugin, BuildCtx } from "@quartz-community/types";
-import type { Element, Root } from "hast";
-import { visit } from "unist-util-visit";
-import type { FullSlug, RelativeURL, SimpleSlug, TransformOptions } from "@quartz-community/utils";
-import { stripSlashes, simplifySlug, splitAnchor, transformLink } from "@quartz-community/utils";
-import path from "path";
-import isAbsoluteUrl from "is-absolute-url";
-import type { Root, Element, Text } from "hast";
-import type { VFile } from "vfile";
+import type { QuartzTransformerPlugin, BuildCtx } from "@quartz-community/types"
+import type { Element, Root } from "hast"
+import { visit } from "unist-util-visit"
 
 export interface LinkClassRule {
   /**
@@ -93,6 +87,8 @@ function matchesRule(slug: string, rule: LinkClassRule): boolean {
   return false;
 }
 
+
+
 export const LinkClasses: QuartzTransformerPlugin<
   Partial<LinkClassesOptions>
 > = (userOpts) => {
@@ -121,14 +117,12 @@ export const LinkClasses: QuartzTransformerPlugin<
               }
 
               const existingClasses = node.properties.className;
-
-              const classes: string[] = Array.isArray(existingClasses)
-                ? existingClasses.filter(
-                    (value): value is string => typeof value === "string",
-                  )
-                : typeof existingClasses === "string"
-                  ? existingClasses.split(/\s+/).filter(Boolean)
-                  : [];
+const classes: string[] = Array.isArray(existingClasses)
+  ? existingClasses.filter(
+      (value): value is string => typeof value === "string",
+    )
+  : []
+           
 
               // CrawlLinks should have already added this class.
               if (!classes.includes("internal")) {
